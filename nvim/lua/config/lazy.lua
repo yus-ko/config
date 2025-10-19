@@ -51,137 +51,8 @@ require("lazy").setup({
 		tag = '0.1.8',
 		dependencies = { 'nvim-lua/plenary.nvim' },
 	},
-	-- {
-	-- 	"mason-org/mason.nvim",
-	-- 	build = ":MasonUpdate",
-	-- 	cmd = { "Mason", "MasonUpdate", "MasonLog", "MasonInstall", "MasonUninstall", "MasonUninstallAll" },
-	-- 	config = true,
-	-- },
-	-- {
-	-- 	"mason-org/mason-lspconfig.nvim",
-	-- 	dependencies = {
-	-- 	{ "mason-org/mason.nvim" },
-	-- 	{ "neovim/nvim-lspconfig" },
-	-- 	},
-	-- 	event = { "BufReadPre", "BufNewFile" },
-	-- 	config = true,
-	-- 	keys = {
-	-- 	{ "<C-space>", "<cmd>lua vim.lsp.completion.get()  <CR>", mode = "i" },
-	-- 	{ "gh",        "<cmd>lua vim.lsp.buf.hover()       <CR>" },
-	-- 	{ "gd",        "<cmd>lua vim.lsp.buf.definition()  <CR>" },
-	-- 	{ "gD",        "<cmd>lua vim.lsp.buf.declaration() <CR>" },
-	-- 	},
-	-- },
-	-- {
-	-- 	'nvim-treesitter/nvim-treesitter',
-	-- 	lazy = false,
-	-- 	branch = 'main',
-	-- 	build = ':TSUpdate',
-	-- 	dependencies = {
-	-- 		-- "nvim-treesitter/nvim-treesitter-textobjects",
-	-- 		-- "nvim-treesitter/nvim-treesitter-cli",
-	-- 	},
-	-- 	-- main = 'nvim-treesitter.configs', 
-	-- 	-- opts = {
-	-- 	-- 	highlight = { enable = true },
-	-- 	-- },
-	-- },
 	{
 		"neovim/nvim-lspconfig",
-		-- config = function()
-		-- 	-- ref: https://github.com/NvChad/NvChad/blob/v2.5/lua/nvchad/configs/lspconfig.lua
-		-- 	local M = {}
-		-- 	local map = vim.keymap.set
-
-		-- 	-- export on_attach & capabilities
-		-- 	M.on_attach = function(_, bufnr)
-		-- 	local function opts(desc)
-		-- 		return { buffer = bufnr, desc = "LSP " .. desc }
-		-- 	end
-
-		-- 	map("n", "gD", vim.lsp.buf.declaration, opts "Go to declaration")
-		-- 	map("n", "gd", vim.lsp.buf.definition, opts "Go to definition")
-		-- 	map("n", "gi", vim.lsp.buf.implementation, opts "Go to implementation")
-		-- 	map("n", "<leader>sh", vim.lsp.buf.signature_help, opts "Show signature help")
-		-- 	map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts "Add workspace folder")
-		-- 	map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts "Remove workspace folder")
-
-		-- 	map("n", "<leader>wl", function()
-		-- 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-		-- 	end, opts "List workspace folders")
-
-		-- 	map("n", "<leader>D", vim.lsp.buf.type_definition, opts "Go to type definition")
-		-- 	-- map("n", "<leader>ra", require "nvchad.lsp.renamer", opts "NvRenamer")
-
-		-- 	map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts "Code action")
-		-- 	map("n", "gr", vim.lsp.buf.references, opts "Show references")
-		-- 	end
-
-		-- 	-- disable semanticTokens
-		-- 	M.on_init = function(client, _)
-		-- 	if client.supports_method "textDocument/semanticTokens" then
-		-- 		client.server_capabilities.semanticTokensProvider = nil
-		-- 	end
-		-- 	end
-
-		-- 	M.capabilities = vim.lsp.protocol.make_client_capabilities()
-
-		-- 	M.capabilities.textDocument.completion.completionItem = {
-		-- 	documentationFormat = { "markdown", "plaintext" },
-		-- 	snippetSupport = true,
-		-- 	preselectSupport = true,
-		-- 	insertReplaceSupport = true,
-		-- 	labelDetailsSupport = true,
-		-- 	deprecatedSupport = true,
-		-- 	commitCharactersSupport = true,
-		-- 	tagSupport = { valueSet = { 1 } },
-		-- 	resolveSupport = {
-		-- 		properties = {
-		-- 		"documentation",
-		-- 		"detail",
-		-- 		"additionalTextEdits",
-		-- 		},
-		-- 	},
-		-- 	}
-
-		-- 	M.defaults = function()
-			-- dofile(vim.g.base46_cache .. "lsp")
-			-- require("nvchad.lsp").diagnostic_config()
-
-			-- require("lspconfig").lua_ls.setup {
-			-- 	on_attach = M.on_attach,
-			-- 	capabilities = M.capabilities,
-			-- 	on_init = M.on_init,
-
-			-- 	settings = {
-			-- 	Lua = {
-			-- 		diagnostics = {
-			-- 		globals = { "vim" },
-			-- 		},
-			-- 		workspace = {
-			-- 		library = {
-			-- 			vim.fn.expand "$VIMRUNTIME/lua",
-			-- 			vim.fn.expand "$VIMRUNTIME/lua/vim/lsp",
-			-- 			vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types",
-			-- 			vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy",
-			-- 			"${3rd}/luv/library",
-			-- 		},
-			-- 		maxPreload = 100000,
-			-- 		preloadFileSize = 10000,
-			-- 		},
-			-- 	},
-			-- 	},
-			-- }
-
-			-- require("lspconfig").ts_ls.setup({})
-			-- require("lspconfig").gopls.setup({})
-			-- require("lspconfig").ruby_lsp.setup({})
-			-- require("lspconfig").ziggy.setup({})
-			-- require("lspconfig").bashls.setup({})
-		-- 	end
-
-		-- 	M.defaults()
-		-- end
 	},
 	{
 		"williamboman/mason.nvim",
@@ -268,20 +139,6 @@ require("lazy").setup({
 			end
 			cmp.setup({
 			completion = { autocomplete = { cmp.TriggerEvent.TextChanged } },
-			-- snippet = {
-			--   -- REQUIRED - you must specify a snippet engine
-			--   expand = function(args)
-			--     vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-			--     -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-			--     -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-			--     -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-			--     -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
-			--   end,
-			-- },
-			-- window = {
-			--   -- completion = cmp.config.window.bordered(),
-			--   -- documentation = cmp.config.window.bordered(),
-			-- },
 			mapping = cmp.mapping.preset.insert({
 				['<C-b>'] = cmp.mapping.scroll_docs(-4),
 				['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -291,25 +148,10 @@ require("lazy").setup({
 			}),
 			sources = cmp.config.sources({
 				{ name = 'nvim_lsp' },
-				-- { name = 'vsnip' }, -- For vsnip users.
-				-- { name = 'luasnip' }, -- For luasnip users.
-				-- { name = 'ultisnips' }, -- For ultisnips users.
-				-- { name = 'snippy' }, -- For snippy users.
 			}, {
 				{ name = 'buffer' },
 			})
 			})
-
-			-- To use git you need to install the plugin petertriho/cmp-git and uncomment lines below
-			-- Set configuration for specific filetype.
-			--[[ cmp.setup.filetype('gitcommit', {
-			sources = cmp.config.sources({
-				{ name = 'git' },
-			}, {
-				{ name = 'buffer' },
-			})
-			})
-			require("cmp_git").setup() ]]-- 
 
 			-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 			cmp.setup.cmdline({ '/', '?' }, {
@@ -329,9 +171,7 @@ require("lazy").setup({
 			}),
 			matching = { disallow_symbol_nonprefix_matching = false }
 			})
-
-
 		end
-		}
+	}
 })
 

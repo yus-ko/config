@@ -84,9 +84,9 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1='\e[96m\e[2m[\D{%Y/%m/%d %H:%M:%S}]\e[0m $TERMINAL_ICON$docker_container \e[96m\u@\h \e[94m\w\n\e[94m\e[6m>>\e[0m \[\033[00m\]'
-    # PS1='$(random_element icons_emotion) \e[96m\u:\e[96m\w\e[94m\$\e[0m '
-    # PS1='$TERMINAL_ICON \e[96m\u:\e[96m\w\e[94m\$\e[0m '
+    PS1='\e[96m\e[2m[\D{%Y/%m/%d %H:%M:%S}]\e[0m $TERMINAL_ICON$docker_container \e[96m\u@\h \e[94m\w\n\[\e[94m\e[6m\]>> \[\e[0m\[\033[00m\]'
+    # PS1='$(random_element icons_emotion) \[\e[96m\]\u:\[\e[96m\]\w\[\e[94m\]\$\[\e[0m\] '
+    # PS1='$TERMINAL_ICON \[\e[96m\]\u:\[\e[96m\]\w\[\e[94m\]\$\[\e[0m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
